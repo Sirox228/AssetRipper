@@ -52,7 +52,7 @@ namespace AssetRipper.Export.Modules.Shaders.IO
 
 					//IReadOnlyDictionary<int, string> nameIndices = _this.NameIndices.ToDictionary(k => k.Value, v => v.Key.ToString());
 					Dictionary<int, string> nameIndices = new Dictionary<int, string>();
-					for (Utf8String key in _this.NameIndices.Keys) {
+					foreach (Utf8String key in _this.NameIndices.Keys) {
 						nameIndices.Add(_this.NamsIndices[key], key.ToString());
 					}
 					if ((_this.ProgramMask & ShaderType.Vertex.ToProgramMask()) != 0)

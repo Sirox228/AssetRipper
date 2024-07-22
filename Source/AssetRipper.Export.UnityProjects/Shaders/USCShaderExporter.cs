@@ -633,7 +633,11 @@ namespace AssetRipper.Export.UnityProjects.Shaders
 					{
 						if (program.Has_CommonParameters())
 						{
-							subProgram.ApplyCommonParams(program.CommonParameters, pass.NameIndices.ToDictionary(k => k.Value, v => (string)v.Key));
+	                        Dictionary<int, string> nameIndices = new Dictionary<int, string>();
+					        foreach (Utf8String key in pass.NameIndices.Keys) {
+						        nameIndices.Add(pass.NameIndices[key], key.ToString());
+					        }
+							subProgram.ApplyCommonParams(program.CommonParameters, nameIndices);
 						}
 					}
 

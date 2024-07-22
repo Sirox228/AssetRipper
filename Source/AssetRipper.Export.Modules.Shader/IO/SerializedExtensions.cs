@@ -50,7 +50,7 @@ namespace AssetRipper.Export.Modules.Shaders.IO
 				{
 					_this.State.Export(writer);
 
-					IReadOnlyDictionary<int, string> nameIndices = _this.NameIndices.ToDictionary(k => (int)k.Value, v => (string)v.Key);
+					IReadOnlyDictionary<int, string> nameIndices = _this.NameIndices.ToDictionary(k => k.Value, v => v.Key.ToString());
 					if ((_this.ProgramMask & ShaderType.Vertex.ToProgramMask()) != 0)
 					{
 						_this.ProgVertex.Export(writer, ShaderType.Vertex, nameIndices);
